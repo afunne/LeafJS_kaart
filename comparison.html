@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Töö kirjeldus ja võrdlus</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@3.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Kaardiprojekt</a>
+    <nav class="site-nav pure-menu pure-menu-horizontal" aria-label="Põhinavigatsioon">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a class="pure-menu-link" href="index.html">Avaleht</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="kaart.html">LeafletJS kaart</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="openlayers-map.html">OpenLayers kaart</a></li>
+        <li class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="comparison.html" aria-current="page">Töö kirjeldus</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <p class="kicker">Töö kirjeldus / võrdlus</p>
+    <h1>Kaks teeki, üks marsruut.</h1>
+    <p class="lead">Mõlemad kaardid loevad faili <strong>pathtoschoolfromhome.kml</strong> ja näitavad kodu, kooli ning nende vahelist teekonda.</p>
+
+    <section class="comparison-grid" aria-label="Kaarditeekide võrdlus">
+      <article class="comparison-card">
+        <h2>LeafletJS</h2>
+        <p>Lihtne ja kerge lahendus interaktiivse veebikaardi loomiseks.</p>
+        <ul>
+          <li>OpenStreetMap aluskaart</li>
+          <li>KML-i punktid ja marsruut</li>
+          <li>Popup-id ning kodukoha ring</li>
+        </ul>
+        <a class="button" href="kaart.html">Vaata kaarti</a>
+      </article>
+
+      <article class="comparison-card">
+        <h2>OpenLayers</h2>
+        <p>Paindlikum lahendus vektorandmete ja suuremate kaardifunktsioonide jaoks.</p>
+        <ul>
+          <li>KML-vektorikiht ja kohandatud ikoonid</li>
+          <li>Kodu rohelise ringi ja valge äärega</li>
+          <li>Teekonna pikkus, mõõtkava ja täisekraan</li>
+        </ul>
+        <a class="button" href="openlayers-map.html">Vaata kaarti</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
