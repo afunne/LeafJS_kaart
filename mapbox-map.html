@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapbox GL JS kaart | Kaardiprojekt</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@3.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.30.0/mapbox-gl.css" rel="stylesheet">
+  <style>
+    #mapbox-map { width: 100%; height: 100%; }
+    .mapbox-panel {
+      position: absolute; top: 68px; left: 16px; z-index: 2;
+      width: min(360px, calc(100% - 32px)); padding: 16px;
+      border: 1px solid rgba(23, 33, 31, 0.16); border-radius: 4px;
+      background: rgba(255, 253, 247, 0.96); box-shadow: 0 4px 18px rgba(23, 33, 31, 0.2);
+    }
+    .mapbox-panel h1 { margin: 0 0 6px; font-size: 1.25rem; }
+    .mapbox-panel p { margin: 0 0 12px; color: var(--muted); font: 0.82rem/1.4 Arial, sans-serif; }
+    .token-form { display: flex; gap: 6px; }
+    .token-form input { min-width: 0; flex: 1; padding: 9px; border: 1px solid var(--line); border-radius: 3px; font: 0.8rem Arial, sans-serif; }
+    .token-form button, .mapbox-action { padding: 9px 10px; border: 0; border-radius: 3px; background: var(--green); color: #fff; cursor: pointer; font: 700 0.78rem Arial, sans-serif; }
+    .mapbox-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .mapbox-action.secondary { background: #e9eee9; color: var(--green-dark); }
+    .mapbox-status { margin-top: 10px !important; color: var(--green-dark) !important; }
+    .mapboxgl-ctrl-group button { width: 34px; height: 34px; }
+    @media (max-width: 640px) { .mapbox-panel { top: 108px; } }
+  </style>
+</head>
+<body class="map-page">
+  <header class="site-header">
+    <a class="brand" href="index.html">Kaardiprojekt</a>
+    <nav class="site-nav pure-menu pure-menu-horizontal" aria-label="Põhinavigatsioon">
+      <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a class="pure-menu-link" href="index.html">Avaleht</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="kaart.html">LeafletJS kaart</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="openlayers-map.html">OpenLayers kaart</a></li>
+        <li class="pure-menu-item pure-menu-selected"><a class="pure-menu-link" href="mapbox-map.html" aria-current="page">Mapbox kaart</a></li>
+        <li class="pure-menu-item"><a class="pure-menu-link" href="comparison.html">Töö kirjeldus</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="mapbox-map" aria-label="Mapbox kaart KML marsruudiga"></div>
+  <section class="mapbox-panel" aria-label="Mapbox seadistus ja tööriistad">
+    <h1>Mapbox GL JS</h1>
+    <p>Sisesta oma avalik Mapbox access token. Seda hoitakse ainult selle brauseri localStorage-is.</p>
+    <form id="token-form" class="token-form">
+      <input id="token-input" type="password" placeholder="pk.eyJ1..." autocomplete="off" aria-label="Mapbox access token" required>
+      <button type="submit">Käivita</button>
+    </form>
+    <div class="mapbox-actions" hidden>
+      <button id="fit-route" class="mapbox-action" type="button">Näita kogu marsruuti</button>
+      <button id="toggle-route" class="mapbox-action secondary" type="button">Peida marsruut</button>
+      <button id="clear-token" class="mapbox-action secondary" type="button">Eemalda token</button>
+    </div>
+    <p id="mapbox-status" class="mapbox-status" role="status">Kaart ootab tokenit.</p>
+  </section>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.30.0/mapbox-gl.js"></script>
+  <script src="mapbox-map.js"></script>
+</body>
+</html>
