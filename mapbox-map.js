@@ -22,7 +22,7 @@ document.querySelector('#clear-token').addEventListener('click', () => {
   localStorage.removeItem(tokenStorageKey);
   tokenInput.value = '';
   actions.hidden = true;
-  status.textContent = 'Token eemaldatud. Sisesta uus token kaardi käivitamiseks.';
+  status.textContent = 'Token eemaldatud. Sisesta enda token kaardi käivitamiseks.';
   if (map) { map.remove(); map = undefined; }
 });
 
